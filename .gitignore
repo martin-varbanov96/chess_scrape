@@ -1,0 +1,9 @@
+# .gitignore
+
+# remove all pgn files:
+*.pgn
+
+# remove all json files:
+*.json
+
+
