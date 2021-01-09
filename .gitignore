@@ -6,4 +6,7 @@
 # remove all json files:
 *.json
 
+# remove cache
+__pycache__
+
 
