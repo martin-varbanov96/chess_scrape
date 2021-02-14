@@ -13,7 +13,6 @@ class DataLoader:
         col = self.db[collection]
         status = col.insert_many(docs_list)
 
-        # TODO: should it be more assertive?
         if(status == []):
             print("Nothing was inserted")
 
