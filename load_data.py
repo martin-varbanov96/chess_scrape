@@ -15,4 +15,6 @@ class DataLoader:
 
         if(status == []):
             print("Nothing was inserted")
+        else:
+            print("insertion succssesful")
 

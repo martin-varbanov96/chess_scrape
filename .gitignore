@@ -9,4 +9,5 @@
 # remove cache
 __pycache__
 
-
+# escape personal variables
+PersonalVariables.py

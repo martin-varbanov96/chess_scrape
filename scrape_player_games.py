@@ -6,7 +6,6 @@ NAME = "funvengeance"
 CHESS_GAMES = "chess_games"
 
 class PlayerGamesScraper():
-
     def scrape_last_month_games(self, player_name):
         # get data for last month
         today = datetime.date.today()
@@ -14,7 +13,7 @@ class PlayerGamesScraper():
         lastMonth = first - datetime.timedelta(days=1)
         last_month_str = lastMonth.strftime("%m")
         las_month_year_int = int(lastMonth.strftime("%Y"))
-        
+
         # get games
         data_fetcher = DataFetcher(player_name)
         json_games_array = data_fetcher.get_array_chess_games(last_month_str, las_month_year_int)
