@@ -11,10 +11,10 @@ class DataLoader:
         assert(type(docs_list) == list)
         assert(type(collection) == str)
         col = self.db[collection]
-        status = col.insert_many(docs_list)
-
-        if(status == []):
-            print("Nothing was inserted")
-        else:
-            print("insertion succssesful")
+        # status = col.insert_many(docs_list)
+        for doc in docs_list:
+            status = col.update_one(doc, {"$set": doc}, upsert=True)
+            # TODO: improve logging
+            if(status.modified_count == 0):
+                print(f"element {doc['url']} was not inserted")
 
