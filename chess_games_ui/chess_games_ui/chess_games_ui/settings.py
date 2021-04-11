@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    'all_chess_games',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
