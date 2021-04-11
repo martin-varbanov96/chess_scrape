@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'chess_games_ui.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "chess_init",
+        'NAME': personal_variables.chess_database,
         'USER': personal_variables.DB_USER,
         'PASSWORD': personal_variables.DB_PASS,
-        'HOST': "",
-        'PORT': "",
+        'HOST': personal_variables.host_address,
+        'PORT': "3306",
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
