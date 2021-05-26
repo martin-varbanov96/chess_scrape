@@ -16,4 +16,4 @@ RUN python chess_games_ui/manage.py makemigrations
 
 RUN python chess_games_ui/manage.py migrate
 
-CMD [ "python", "chess_games_ui/manage.py", "runserver", "0.0.0.0:8000" ]
+CMD [ "python", "chess_games_ui/manage.py", "runserver", "0.0.0.0:8000", "--insecure" ]

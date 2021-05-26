@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'chess_games_ui.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': personal_variables.chess_database,
-        'USER': personal_variables.DB_USER,
-        'PASSWORD': personal_variables.DB_PASS,
-        'HOST': personal_variables.host_address,
+        'NAME': personal_variables.aws_mysql_db_name,
+        'USER': personal_variables.aws_mysql_db_user,
+        'PASSWORD': personal_variables.aws_mysql_db_pass,
+        'HOST': personal_variables.aws_mysql_db_host,
         'PORT': "3306",
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"

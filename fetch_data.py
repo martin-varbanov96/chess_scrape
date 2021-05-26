@@ -21,11 +21,14 @@ class DataFetcher:
         if(r.status_code == 200):
             return r.text
         else:
+            # TODO: should stop the execution of further calls
             print(f"could not obtain games from chess.com. \n Status: {r.status_code}")
 
     
     def get_array_chess_games(self, month, year):
         raw_string = self.fetch_month_games_json(month, year)
+        if(type(raw_string) != str):
+            print("games were not obtained. Replace with an exception")
         json_result = json.loads(raw_string)
         return json_result["games"]
 

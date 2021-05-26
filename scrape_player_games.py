@@ -22,6 +22,9 @@ class PlayerGamesScraper():
         data_loader = DataLoader()
         data_loader.mongo_many_insert_to_collection(CHESS_GAMES, json_games_array)
 
+        # insert mysql games
+        data_loader.mysql_many_insert(json_games_array)
+
 if __name__ == "__main__":
     scraper = PlayerGamesScraper()
     scraper.scrape_last_month_games(NAME)

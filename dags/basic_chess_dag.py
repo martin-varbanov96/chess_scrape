@@ -16,7 +16,7 @@ def get_montly_chess_com_games(*args, **kwargs):
 
 with DAG(
         dag_id="basic_chess_dag",
-        schedule_interval="@daily",
+        schedule_interval="@monthly",
         default_args={
             "owner": "airflow",
             "retries": 1,
