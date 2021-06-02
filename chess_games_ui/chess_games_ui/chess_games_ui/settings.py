@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'all_chess_games',
-    'about_page',
+    'chess_scrape_frontend',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
