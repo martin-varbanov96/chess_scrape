@@ -20,9 +20,11 @@ def all_chess_games(request, page_number):
     uri = str(request.path)
     #page_number = int(uri.split("/")[2])
     entries_per_page = 20
-    final_page = ceil(all_chess_games_size / entries_per_page)
+    final_page = int(all_chess_games_size / entries_per_page)
     first_entry_to_show = page_number*entries_per_page
     last_entry_to_show = page_number*entries_per_page + entries_per_page
+    previous_page = page_number - 1
+    next_page = page_number + 1
     games_to_show = []
 
     # page out of limits
@@ -35,10 +37,12 @@ def all_chess_games(request, page_number):
     else:
         games_to_show = all_chess_games[first_entry_to_show:last_entry_to_show]
     context = {"games_to_show": games_to_show,
-                "current_page": page_number,
-                "final_page": final_page,
-                }
+               "current_page": page_number,
+               "final_page": final_page,
+               "previous_page": previous_page,
+               "next_page": next_page,
+               }
     return render(request,
-                    all_chess_games_html,
-                    context)
+                  all_chess_games_html,
+                  context)
 
