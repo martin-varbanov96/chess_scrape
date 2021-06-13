@@ -20,37 +20,20 @@
             <table>
             <thead>
                 <tr>
-                <th>Product no.</th>
-                <th>Description</th>
-                <th>Price</th>
+                <th> white username</th>
+                <th>black username</th>
+                <th>link to game</th>
                 </tr>
             </thead>
             <tbody>
+                {% for game in games_to_show %}
                 <tr>
-                <td>#1011</td>
-                <td>Lorem ipsum dolor sit amet</td>
-                <td>$20.50</td>
+                <td>{{game.white_player.username}}</td>
+                <td>{{game.black_player.username}}</td>
+                <td>{{game.url}}</td>
                 </tr>
-                <tr>
-                <td>#1012</td>
-                <td>Lorem ipsum dolor sit amet</td>
-                <td>$20.50</td>
-                </tr>
-                <tr>
-                <td>#1013</td>
-                <td>Lorem ipsum dolor sit amet</td>
-                <td>$20.50</td>
-                </tr>
-                <tr>
-                <td>#1014</td>
-                <td>Lorem ipsum dolor sit amet</td>
-                <td>$20.50</td>
-                </tr>
-                <tr>
-                <td>#1015</td>
-                <td>Lorem ipsum dolor sit amet</td>
-                <td>$20.50</td>
-                </tr>
+                {% endfor %}
+
             </tbody>
             </table>
             <ul class="table-pagination">
