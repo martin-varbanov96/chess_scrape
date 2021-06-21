@@ -5,12 +5,25 @@ from math import ceil
 from all_chess_games.models import ChessGame
 
 # django imports:
+from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.template import Context, loader, Template
 from django.shortcuts import render
 
 def about_page(request):
     return render(request, 'about_page/about_page.html')
+
+def register_page(request):
+    form = UserCreationForm()
+    context = {'form':form}
+    if request.method == 'POST':
+        print(context)
+        print("maika ti")
+        if(form.is_valid()):
+            print("we here")
+            form.save()
+
+    return render(request, 'users/register.html', context)
 
 def all_chess_games(request, page_number):
 
