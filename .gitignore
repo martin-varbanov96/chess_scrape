@@ -8,6 +8,7 @@
 
 # remove cache
 __pycache__
+.ipynb_checkpoints
 
 # escape personal variables
 PersonalVariables.py
