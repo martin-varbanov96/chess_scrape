@@ -5,25 +5,45 @@ from math import ceil
 from all_chess_games.models import ChessGame
 
 # django imports:
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 from django.http import HttpResponse
-from django.template import Context, loader, Template
-from django.shortcuts import render
+from django.template import Context, context, loader, Template
+from django.shortcuts import render, redirect
 
 def about_page(request):
     return render(request, 'about_page/about_page.html')
 
 def register_page(request):
-    form = UserCreationForm()
+    form = UserCreationForm(request.POST)
     context = {'form':form}
     if request.method == 'POST':
-        print(context)
-        print("maika ti")
         if(form.is_valid()):
-            print("we here")
+            messages.success(request, "register succssesful")
             form.save()
+            return redirect('register_page')
 
     return render(request, 'users/register.html', context)
+
+def login_page(request):
+    if(request.method == 'POST'):
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(request,
+                            username=username,
+                            password=password,
+                            )
+
+        if(user):
+            login(request, user)
+            redirect('about_page')
+    # TODO: redirect o proper handler
+
+    context = {}
+    return render(request, 'users/login.html', context)
+
 
 def all_chess_games(request, page_number):
 
